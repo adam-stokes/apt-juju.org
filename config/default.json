@@ -1,0 +1,6 @@
+{
+  "dsn": "postgresql://adam:password@172.17.0.3:5432/aptjuju_dev",
+  "site": {
+    "name": "apt-juju"
+  }
+}
