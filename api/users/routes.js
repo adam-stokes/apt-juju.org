@@ -1,7 +1,7 @@
 "use strict";
 
 let Joi = require("joi");
-let User = require("../models/user");
+let User = require("./model");
 let bcrypt = require("bcryptjs");
 let Boom = require("boom");
 
@@ -18,7 +18,7 @@ routes.push({
   method: "POST",
   path: "/api/users/login",
   config: {
-    handler: (request, reply) => {
+    handler: function (request, reply) {
       User.forge({
           email: request.payload.email
         })

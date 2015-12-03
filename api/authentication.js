@@ -28,7 +28,8 @@ let authPlugin = {
 };
 
 authPlugin.register.attributes = {
-  name: 'authPlugin'
+  name: 'authPlugin',
+  version: "1.0.0"
 };
 
 module.exports = authPlugin;

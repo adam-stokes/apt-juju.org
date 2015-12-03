@@ -1,5 +1,5 @@
 "use strict";
-let UserRoutes = require("./users");
+let UserRoutes = require("./users/routes");
 
 
 let api = {
@@ -9,7 +9,8 @@ let api = {
 };
 
 api.register.attributes = {
-  name: 'apiPlugin'
+  name: 'apiPlugin',
+  version: "1.0.0"
 };
 
 module.exports = api;
