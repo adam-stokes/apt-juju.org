@@ -7,9 +7,7 @@ let Minimist = require("minimist");
 let Vision = require("vision");
 let Inert = require("inert");
 let Jade = require("jade");
-let api = require("./lib/api");
-let authPlugin = require("./lib/authentication");
-let routes = require("./lib/routes");
+let routes = require("./web/routes");
 let serverConfig = {};
 let server = new Hapi.Server(serverConfig);
 
@@ -27,8 +25,8 @@ if (argv.help) {
 }
 
 server.connection({
-  host: argv.host,
-  port: argv.port
+  host: Config.web.host,
+  port: Config.web.port
 });
 
 let plugins = [];
@@ -54,20 +52,11 @@ plugins.push({
   register: Inert
 });
 
-plugins.push({
-  register: authPlugin
-});
-
-plugins.push({
-  register: api
-});
-
 server.register(plugins, err => {
   if (err) {
     throw err;
   }
 });
-
 
 server.route(routes);
 
@@ -76,9 +65,9 @@ server.views({
     jade: Jade
   },
   relativeTo: __dirname,
-  path: "./templates",
+  path: "./web/templates",
   context: {
-    site: Config.site
+    site: Config.web
   }
 });
 
