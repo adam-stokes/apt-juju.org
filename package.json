@@ -4,7 +4,7 @@
   "description": "package build webapp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/battlemidget/apt-juju.org#readme",
   "dependencies": {
+    "babel": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
     "bcryptjs": "^2.3.0",
     "bookshelf": "^0.9.1",
     "boom": "^3.0.0",
@@ -32,5 +34,16 @@
     "minimist": "^1.2.0",
     "pg": "^4.4.3",
     "vision": "^4.0.1"
+  },
+  "devDependencies": {
+    "xo": "^0.11.2"
+  },
+  "xo": {
+    "esnext": true
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
